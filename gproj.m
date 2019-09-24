@@ -11,6 +11,11 @@ l_mx = 1e8;
 
 x = z(1:end-1) .* (1 + l * asq.^(-1)).^(-1);
 x(end + 1) = z(end) + l/2;
+
+if rows(x) < 2
+	x = x';
+endif
+
 f_opt = (z - x)'*(z - x);
 
 endfunction
